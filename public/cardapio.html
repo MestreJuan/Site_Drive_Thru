@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio - Mickey e Donald</title>
+    <link rel="stylesheet" href="CSS/style.css?v=4">
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>🍔 Nosso Cardápio</h1>
+        </div>
+        <nav>
+            <a href="index.html">Voltar para Home</a>
+            <a href="carrinho.html" class="btn-carrinho">🛒 Carrinho <span id="cont-carrinho">(0)</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="filtros">
+            <button class="btn-filtro ativo">Todos</button>
+            <button class="btn-filtro">Lanches</button>
+            <button class="btn-filtro">Bebidas</button>
+            <button class="btn-filtro">Sobremesas</button>
+        </div>
+
+        <div id="lista-produtos" class="grade-produtos">
+            <p style="text-align: center; width: 100%;">Carregando delícias...</p>
+        </div>
+    </main>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>

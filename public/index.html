@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Drive-Thru do Mickey e Donald</title>
+    <link rel="stylesheet" href="CSS/style.css?v=4">
+</head>
+
+<body> 
+    <header>
+        <div class="logo-area">
+            <h1>🍔 Mickey & Donald</h1>
+        </div>
+        
+        <nav>
+            <a href="cardapio.html">Ver Cardápio</a>
+
+            <div id="menu-visitante">
+                <a href="admin.html" id="link-admin" style="display: none; background: #333; padding: 5px 10px; border-radius: 5px;">👑 Painel Admin</a>
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="cadastro.html" class="btn-destaque">Criar Conta</a>
+            </div>
+
+            <div id="menu-usuario" style="display: none;">
+                <span>Olá, <strong id="nome-usuario-header">Cliente</strong>!</span>
+                <a href="page_usuario.html">Minha Conta</a>
+                <button id="btn-sair-header">Sair</button>
+                <a href="carrinho.html" class="btn-carrinho">
+                🛒 Carrinho <span id="cont-carrinho">(0)</span>
+            </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <h2>Bateu a fome?</h2>
+            <p>O melhor lanche da cidade, preparado na hora e entregue quentinho.</p>
+            <br>
+            <div class="botoes-home">
+                <a href="cardapio.html" class="btn-hero">Fazer Pedido Agora</a>
+                <a href="https://wa.me/11934605082" class="link-zap">Falar com o dono</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="JS/script.js"></script>
+</body>
+</html>

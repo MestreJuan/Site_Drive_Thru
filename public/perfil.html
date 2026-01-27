@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Conta - Mickey e Donald</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>👤 Minha Conta</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="cardapio.html">Cardápio</a>
+            <button id="btn-sair-perfil" style="background:red; border:none; color:white; padding:5px 10px; cursor:pointer;">Sair</button>
+        </nav>
+    </header>
+
+    <main class="container-perfil">
+        
+        <section class="card-perfil">
+            <h2>📝 Meus Dados</h2>
+            <form id="form-atualizar-dados">
+                <label>Nome Completo</label>
+                <input type="text" id="perfil-nome" disabled style="background: #eee;">
+                
+                <label>Email</label>
+                <input type="email" id="perfil-email" disabled style="background: #eee;">
+
+                <label>Telefone / WhatsApp</label>
+                <input type="text" id="perfil-telefone" placeholder="Digite o novo telefone aqui">
+
+                <label>Endereço de Entrega</label>
+                <textarea id="perfil-endereco" rows="3" placeholder="Digite o novo Endereço aqui"></textarea>
+
+                <button type="submit" id="btn-salvar" class="btn-destaque" style="width: 100%; margin-top: 10px;">Salvar Alterações</button>
+            </form>
+        </section>
+
+        <section class="card-perfil">
+            <h2>Meus Pedidos</h2>
+            <div id="lista-meus-pedidos">
+                <p>Carregando histórico...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="JS/script.js"></script>
+    <script>
+        carregarDadosPerfil();
+        carregarMeusPedidos();
+
+        document.getElementById('btn-sair-perfil').onclick = () => 
+        {
+            localStorage.removeItem('usuarioLogado');
+            window.location.href = 'index.html';
+        };
+    </script>
+</body>
+</html>

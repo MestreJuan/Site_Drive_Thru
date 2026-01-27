@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Carrinho - Mickey e Donald</title>
+    <link rel="stylesheet" href="CSS/style.css?v=4">
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>🛒 Seu Pedido</h1>
+        </div>
+        <nav>
+            <a href="index.html">🏠 Home</a>
+            <a href="cardapio.html">⬅ Continuar Comprando</a>
+        </nav>
+    </header>
+
+    <main class="container-carrinho">
+        
+        <div id="itens-carrinho">
+            <p>Seu carrinho está vazio...</p>
+        </div>
+
+        <div class="resumo-pedido">
+            <h3>Resumo</h3>
+            <div class="linha-total">
+                <span>Total:</span>
+                <span id="valor-total">R$ 0,00</span>
+            </div>
+            <div class="info-entrega" style="background: #f9f9f9; padding: 15px; margin: 20px 0; border-radius: 8px; border: 1px solid #ddd;">
+                <h3>📍 Endereço de Entrega</h3>
+                <p id="texto-endereco" style="color: #555;">Carregando...</p>
+                <a href="perfil.html" style="font-size: 0.8rem; color: red;">Alterar endereço</a>
+            </div>
+            <button onclick="abrirModalPagamento()" class="btn-destaque" style="width: 100%; margin-top: 20px;">
+                ✅ Finalizar Pedido
+            </button>
+            <button onclick="limparCarrinho()" style="background: #ccc; border: none; padding: 10px; width: 100%; margin-top: 10px; cursor: pointer;">
+                🗑️ Esvaziar Carrinho
+            </button>
+        </div>
+
+    </main>
+
+    <script src="JS/script.js"></script>
+
+    <div id="modal-pix" class="modal-fundo">
+        <div class="modal-conteudo">
+            <h3>🤑 Hora de Pagar</h3>
+            <p>Total a pagar: <strong id="valor-pix-texto">R$ 0,00</strong></p>
+            
+            <div style="margin: 20px 0;">
+                <img id="img-qrcode" src="" alt="QR Code Pix" width="200">
+            </div>
+            
+            <p style="font-size: 0.9rem; color: #666;">Chave Aleatória: <br> 
+            <span id="pix-copia-cola" style="background: #eee; padding: 5px;">Manda o pix pro 11934605082</span></p>
+
+            <br>
+            <button onclick="confirmarPagamento()" class="btn-destaque">✅ Já Paguei!</button>
+            <button onclick="fecharModal()" style="background: #ccc; border: none; padding: 10px; cursor: pointer; margin-top: 10px;">Cancelar</button>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => 
+        {
+          
+            const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+            
+            const elementoEndereco = document.getElementById('texto-endereco');
+
+            if (elementoEndereco) 
+            {
+                if (usuario && usuario.endereco) 
+                {
+                    elementoEndereco.innerHTML = `
+                        <strong>Rua:</strong> ${usuario.endereco} <br>
+                        <strong>Tel:</strong> ${usuario.telefone || 'Não informado'}
+                    `;
+                    elementoEndereco.style.color = "#000"; 
+                } 
+                else 
+                {
+                    elementoEndereco.innerHTML = "⚠️ Você ainda não cadastrou um endereço.";
+                    elementoEndereco.style.color = "red";
+                }
+            } 
+            else 
+            {
+                console.error("ERRO: Não achei o elemento 'texto-endereco' no HTML.");
+            }
+        });
+
+        
+    </script>
+
+</body>
+</html>

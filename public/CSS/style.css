@@ -1,0 +1,518 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body 
+{
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header 
+{
+    background-color: #E60000; /* Vermelho Fundo */
+    color: white;              /* Texto Branco OBRIGATÓRIO */
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between; /* Separa Logo do Menu */
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header nav 
+{
+    display: flex;
+    align-items: center; /* Centraliza na vertical */
+    gap: 70px;           /* Espaço grande entre "Ver Cardápio" e os botões */
+}
+
+#menu-visitante, #menu-usuario
+{
+    display: flex;       /* Alinha um ao lado do outro */
+    align-items: center; /* Centraliza na vertical */
+    gap: 40px;           /* <--- AQUI VOCÊ AUMENTA A DISTÂNCIA (era 0 ou pouco) */
+}
+
+header h1 
+{
+    font-size: 1.5rem;
+    color: white; /* Garante que o título seja branco */
+}
+
+/* Links do Menu */
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+nav a 
+{
+    color: white !important; /* O !important força ser branco e ignora o roxo */
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+    /*gap: 130px;*/
+}
+
+nav a:hover 
+{
+    opacity: 0.8; /* Leve transparência ao passar o mouse */
+}
+
+/* Botão de "Criar Conta" no menu (Destaque) */
+.btn-destaque 
+{
+    background-color: white;
+    color: #e60000 !important; /* Vermelho Batom */
+    padding: 10px 25px;      /* Um pouquinho maior pra chamar atenção */
+    border-radius: 50px;     /* O arredondado igual */
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra */
+    transition: transform 0.2s;
+}
+
+btn-destaque:hover 
+{
+    transform: scale(1.05); /* Cresce um pouquinho quando passa o mouse */
+    background-color: #f0f0f0;
+}
+
+.btn-destaque:hover 
+{
+    background-color: #eee;
+}
+
+.btn-login 
+{
+    border: 2px solid white; /* Borda branca */
+    background-color: transparent; /* Fundo transparente */
+    color: white !important;
+    padding: 8px 20px;       /* Tamanho interno (Gordinho) */
+    border-radius: 50px;     /* O arredondado (Círculo) */
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn-login:hover 
+{
+    background-color: rgba(255, 255, 255, 0.1); /* Brilho suave ao passar o mouse */
+}
+
+/* ================= ÁREA PRINCIPAL (HERO) ================= */
+.hero-section 
+{
+    height: 90vh; /* Ocupa 90% da altura da tela */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-content h2 
+{
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p 
+{
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.btn-hero 
+{
+    display: inline-block;
+    background-color: #ffc107; 
+    color: #333 !important;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 0 #e0a800;
+}
+
+.btn-hero:hover 
+{
+    transform: translateY(-2px); /* Efeito de pular */
+}
+
+.link-zap 
+{
+    display: block;
+    margin-top: 20px;
+    color: white;
+    text-decoration: underline;
+}
+
+/* ================= FORMULÁRIOS (Login/Cadastro) ================= */
+form 
+{
+    background: white;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+input 
+{
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"] 
+{
+    width: 100%;
+    background-color: #E60000;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover 
+{
+    background-color: #cc0000; /* Um pouco mais escuro quando clica */
+}
+
+/* ================= PÁGINA DE CARDÁPIO ================= */
+
+/* Filtros (Botões arredondados) */
+.filtros 
+{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.btn-filtro 
+{
+    background: white;
+    border: 1px solid #ddd;
+    padding: 8px 20px;
+    border-radius: 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-filtro:hover, .btn-filtro.ativo 
+{
+    background: #E60000;
+    color: white;
+    border-color: #E60000;
+}
+
+/* O GRID (A grade de produtos) */
+.grade-produtos 
+{
+    display: grid;
+    /* Cria colunas automáticas de no mínimo 280px */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* O Cartão Individual */
+.cartao-produto 
+{
+    background: white;
+    border-radius: 15px;
+    overflow: hidden; /* Corta a imagem se passar da borda */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartao-produto:hover 
+{
+    transform: translateY(-5px); /* Flutua ao passar o mouse */
+}
+
+.cartao-produto img 
+{
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+}
+
+.info-produto 
+{
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-produto h3 
+{
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.info-produto p 
+{
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Empurra o preço pra baixo */
+}
+
+.preco 
+{
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #E60000;
+    margin-bottom: 15px;
+}
+
+.info-produto button 
+{
+    background: #222;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.info-produto button:hover 
+{
+    background: #E60000;
+}
+
+/* ================= PÁGINA DO CARRINHO ================= */
+.container-carrinho 
+{
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 partes pra lista, 1 parte pro total */
+    gap: 30px;
+}
+
+/* Lista de Itens */
+.item-carrinho 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.item-info h4 
+{ 
+    margin-bottom: 5px;
+    color: #333; 
+
+}
+
+.item-info span 
+{ 
+    color: #666; 
+    font-size: 0.9rem; 
+}
+
+.item-total 
+{
+    font-weight: bold;
+    color: #E60000;
+}
+
+/* Resumo (O quadrado da direita) */
+.resumo-pedido 
+{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: fit-content; /* Fica do tamanho do conteúdo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.linha-total 
+{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* ================= MODAL PIX ================= */
+.modal-fundo 
+{
+    display: none; /* Começa invisível */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro transparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-conteudo 
+{
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    animation: descer 0.3s ease;
+}
+
+@keyframes descer 
+{
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ================= PÁGINA DE PERFIL ================= */
+.container-perfil 
+{
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Coluna da direita maior */
+    gap: 30px;
+}
+
+.card-perfil 
+{
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card-perfil h2 
+{
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.card-perfil label 
+{
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.card-perfil input, .card-perfil textarea 
+{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo do Card de Pedido individual */
+.pedido-historico 
+{
+    border: 1px solid #eee;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.pedido-historico:hover 
+{
+    transform: translateX(5px);
+    border-color: #ffcc00;
+}
+
+.status-badge 
+{
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Cores dos status */
+.status-pendente { background: orange; }
+.status-preparo { background: #3498db; }
+.status-pronto { background: #27ae60; }
+.status-entregue { background: #333; }
+.status-cancelado { background: #c0392b; }
+
+/* Responsivo para celular */
+@media (max-width: 768px) 
+{
+    .container-perfil 
+    {
+        grid-template-columns: 1fr; /* Vira uma coluna só */
+    }
+}
+
+#btn-salvar 
+{
+    background-color: #e60000; /* Fundo Vermelho */
+    color: white !important;   /* Texto Branco */
+    border: 1px solid #e60000;
+}
+
+#btn-salvar:hover 
+{
+    background-color: #cc0000; /* Um vermelho mais escuro ao passar o mouse */
+    transform: scale(1.02);    /* Um leve zoom */
+}
+
+/* Botão de Remover do Carrinho */
+.btn-lixeira 
+{
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s;
+    border-radius: 50%;
+}
+
+.btn-lixeira:hover 
+{
+    background-color: #ffebee; /* Fundo rosinha claro */
+    transform: scale(1.2);     /* Cresce um pouco */
+}

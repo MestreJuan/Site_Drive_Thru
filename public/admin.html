@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel Administrativo - Mickey e Donald</title>
+    <link rel="stylesheet" href="CSS/style.css?v=4">
+    <style>
+        /* Estilos exclusivos do Painel Admin */
+        .dashboard-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card-opcao {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+            border-left: 5px solid #E60000; /* Detalhe vermelho */
+        }
+
+        .card-opcao:hover {
+            transform: translateY(-5px);
+            background: #fff5f5;
+        }
+
+        .card-opcao h3 { margin-bottom: 10px; color: #333; }
+        .card-opcao p { color: #666; font-size: 0.9rem; }
+
+        /* Classe para esconder telas */
+        .escondido { display: none; }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <div class="logo-area">
+            <h1>🐭 Painel do Adm 🦆</h1>
+        </div>
+        <nav>
+            <span style="margin-right: 15px;">Bem-vindo, Chefe!</span>
+            <a href="index.html" target="_blank">Ver Site (Cliente)</a>
+            <button id="btn-logout" style="background: #333; color: white; border: none; padding: 5px 10px; cursor: pointer;">Sair</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="tela-dashboard">
+            <div style="text-align: center; margin: 40px 0;">
+                <h2>O que deseja fazer hoje?</h2>
+            </div>
+
+            <div class="dashboard-menu">
+                <div class="card-opcao" onclick="mostrarTela('pedidos'); carregarPedidosAdmin();">
+                    <h3>📦 Acompanhar Pedidos</h3>
+                    <p>Adicione lanches ao cardápio.</p>
+                </div>
+
+                <div class="card-opcao" onclick="mostrarTela('cadastro'); mostrformProduto();">
+                    <h3>➕ Criar novo Produto</h3>
+                    <p>Edite preços ou apague itens.</p>
+                </div>
+
+                <div class="card-opcao" onclick="alert('Em breve você verá os pedidos aqui!')">
+                    <h3>✏️ Pedidos em Aberto</h3>
+                    <p>Acompanhe a cozinha.</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="tela-cadastro" class="escondido">
+            <div style="max-width: 500px; margin: 20px auto;">
+                <button onclick="mostrarTela('dashboard')" style="background: #ccc; width: auto; padding: 5px 15px; margin-bottom: 20px;">⬅ Voltar ao Menu</button>
+            </div>
+
+            <form id="form-produto">
+                <h3>Novo Produto 🍔</h3>
+                <br>
+                <label>Nome do Produto:</label>
+                <input type="text" id="prod-nome" placeholder="Ex: X-Donald Especial" required>
+
+                <label>Descrição:</label>
+                <input type="text" id="prod-desc" placeholder="Ex: Pão, carne, queijo e molho secreto" required>
+
+                <label>Preço (R$):</label>
+                <input type="number" step="0.01" id="prod-preco" placeholder="0.00" required>
+
+                <label>Link da Imagem:</label>
+                <input type="text" id="prod-img" placeholder="Cole o link da imagem aqui">
+
+                <label>Categoria:</label>
+                <select id="prod-categoria" style="width: 100%; padding: 10px; margin-bottom: 20px;">
+                    <option value="1">Lanches</option>
+                    <option value="2">Bebidas</option>
+                    <option value="3">Sobremesas</option>
+                </select>
+
+                <button type="submit">Cadastrar Produto</button>
+            </form>
+        </section>
+
+        <section id="tela-pedidos" class="escondido">
+            <div style="max-width: 800px; margin: 20px auto;">
+                <button onclick="mostrarTela('dashboard')" style="background: #ccc; padding: 5px 15px; margin-bottom: 20px;">⬅ Voltar ao Menu</button>
+                
+                <h2>🔥 Pedidos na Chapa</h2>
+                <div id="lista-pedidos-admin" style="display: flex; flex-direction: column; gap: 15px;">
+                    <p>Carregando pedidos...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="JS/script.js"></script>
+    
+    <script>
+        function mostrarTela(tela) 
+        {
+
+            document.getElementById('tela-dashboard').classList.add('escondido');
+            document.getElementById('tela-cadastro').classList.add('escondido');
+            document.getElementById('tela-pedidos').classList.add('escondido');
+
+            if (tela === 'dashboard') 
+            {
+                document.getElementById('tela-dashboard').classList.remove('escondido');
+            } 
+            else if (tela === 'cadastro') 
+            {
+                document.getElementById('tela-cadastro').classList.remove('escondido');
+            }
+            else if (tela == 'pedidos')
+            {
+                document.getElementById('tela-pedidos').classList.remove('escondido');
+            }
+        }
+    </script>
+</body>
+</html>
