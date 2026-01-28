@@ -1,3 +1,14 @@
 node_modules
+# Ignora a pasta gigante de bibliotecas principalmente pra evitar problemas de tamanho no git
 .env
+# Ignora suas senhas e configurações
 DS_Store
+# Ignora arquivo de metadados do Mac
+
+#ignora arquivos (arq.js)
+#ignora arquivos na apenas raiz do projeto (/arq.js)
+#ignora uma pasta e tudo que tem nela (pasta/)
+#ignora arquivos gerados em execucao (*.exe)
+#ignora todos menos um (!esseNao.exe)
+
+#tudo só funciona se o git add no arquivo alvo ainda nao foi usado

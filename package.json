@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+  "scripts": 
+  {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
@@ -11,13 +12,15 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
+  "dependencies": 
+  {
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "mysql2": "^3.16.1",
     "undici-types": "^7.18.2"
   },
-  "devDependencies": {
-    "nodemon": "^3.1.11"
+  "devDependencies": 
+  {
+    "nodemon": "^3.1.11" 
   }
 }
